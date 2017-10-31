@@ -1,0 +1,28 @@
+{
+  "parent": "engine:iconItem",
+  "Item": {
+    "icon": "CommonEdibleFlora:Starfruit",
+    "stackId": "CommonEdibleFlora:Starfruit",
+    "consumedOnUse": true
+  },
+  "DisplayName": {
+    "name": "Starfruit"
+  },
+  "CraftingStationIngredient": {
+    "type": "Starfruit"
+  },
+  "Food": {
+    "filling": 1.5
+  },
+  "Drink": {
+    "filling": 0.5
+  },
+  "ItemHelp": {
+    "category": "Edible Flora",
+    "paragraphText": [
+      "A striking star shaped fruit.",
+	  "It tastes like a cross between an apple and a grape",
+      "Restores 1.5 food and 0.5 water."
+    ]
+  }
+}

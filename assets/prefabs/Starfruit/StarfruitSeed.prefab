@@ -1,0 +1,34 @@
+{
+  "parent": "engine:iconItem",
+  "DisplayName": {
+    "name": "Starfruit Seed"
+  },
+  "Item": {
+    "icon": "CommonEdibleFlora:StarfruitSeed",
+    "stackId": "Starfruit Seed"
+  },
+  "SeedDefinition": {},
+  "BushDefinition": {
+    "growthStages": {
+      "CommonEdibleFlora:YoungStarfruitBush:engine:halfblock": {
+        "minTime": 6000,
+        "maxTime": 12000
+      },
+      "CommonEdibleFlora:YoungStarfruitBush": {
+        "minTime": 7000,
+        "maxTime": 14000
+      },
+      "CommonEdibleFlora:MatureStarfruitBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      },
+      "CommonEdibleFlora:FruitingStarfruitBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      }
+    },
+    "seed": "CommonEdibleFlora:StarfruitSeed",
+    "produce": "CommonEdibleFlora:Starfruit",
+    "sustainable": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "parent": "engine:iconItem",
+  "Item": {
+    "icon": "CommonEdibleFlora:Carrot",
+    "stackId": "CommonEdibleFlora:Carrot",
+    "consumedOnUse": true
+  },
+  "DisplayName": {
+    "name": "Carrot"
+  },
+  "CraftingStationIngredient": {
+    "type": "Carrot"
+  },
+  "Food": {
+    "filling": 1.5
+  },
+  "ItemHelp": {
+    "category": "Edible Flora",
+    "paragraphText": [
+      "A crunchy orange vegetable. Eaten raw or cooked.",
+      "Restores 1.5 food"
+    ]
+  },
+  "SeedDefinition": {
+	"prefab":"CommonEdibleFlora:CarrotBush"
+  }
+}

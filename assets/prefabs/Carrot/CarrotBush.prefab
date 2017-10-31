@@ -1,0 +1,24 @@
+{
+  "BushDefinition": {
+    "growthStages": {
+      "CommonEdibleFlora:YoungCarrotBush:engine:halfblock": {
+        "minTime": 6000,
+        "maxTime": 12000
+      },
+      "CommonEdibleFlora:YoungCarrotBush": {
+        "minTime": 7000,
+        "maxTime": 14000
+      },
+      "CommonEdibleFlora:MatureCarrotBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      },
+      "CommonEdibleFlora:FruitingCarrotBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      }
+    },
+    "produce": "CommonEdibleFlora:Carrot",
+    "sustainable": false
+  }
+}

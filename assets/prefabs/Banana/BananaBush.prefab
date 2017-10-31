@@ -1,0 +1,24 @@
+{
+  "BushDefinition": {
+    "growthStages": {
+      "CommonEdibleFlora:YoungBananaBush:engine:halfblock": {
+        "minTime": 6000,
+        "maxTime": 12000
+      },
+      "CommonEdibleFlora:YoungBananaBush": {
+        "minTime": 7000,
+        "maxTime": 14000
+      },
+      "CommonEdibleFlora:MatureBananaBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      },
+      "CommonEdibleFlora:FruitingBananaBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      }
+    },
+    "produce": "CommonEdibleFlora:Banana",
+    "sustainable": true
+  }
+}

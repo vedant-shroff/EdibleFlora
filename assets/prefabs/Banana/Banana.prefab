@@ -1,0 +1,27 @@
+{
+  "parent": "engine:iconItem",
+  "Item": {
+    "icon": "CommonEdibleFlora:Banana",
+    "stackId": "CommonEdibleFlora:Banana",
+    "consumedOnUse": true
+  },
+  "DisplayName": {
+    "name": "Banana"
+  },
+  "CraftingStationIngredient": {
+    "type": "Banana"
+  },
+  "Food": {
+    "filling": 1.5
+  },
+  "ItemHelp": {
+    "category": "Edible Flora",
+    "paragraphText": [
+      "Bright yellow skin surrounding a white fruit.",
+      "Restores 1.5 food"
+    ]
+  },
+  "SeedDefinition": {
+	"prefab": "CommonEdibleFlora:BananaBush"
+  }
+}
