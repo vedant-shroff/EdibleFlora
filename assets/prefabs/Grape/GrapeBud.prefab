@@ -1,0 +1,24 @@
+{
+  "BushDefinition": {
+    "growthStages": {
+      "CommonEdibleFlora:YoungGrapeBud:engine:halfblock": {
+        "minTime": 1000,
+        "maxTime": 5000
+      },
+      "CommonEdibleFlora:YoungGrapeBud": {
+        "minTime": 2000,
+        "maxTime": 2500
+      },
+      "CommonEdibleFlora:MatureGrapeBud": {
+        "minTime": 5000,
+        "maxTime": 6000
+      },
+      "CommonEdibleFlora:FruitingGrapeBud": {
+        "minTime": 5000,
+        "maxTime": 12000
+      }
+    },
+    "seed": "CommonEdibleFlora:GrapeSeed",
+    "produce": "CommonEdibleFlora:Grape"
+  }
+}

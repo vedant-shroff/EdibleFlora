@@ -1,0 +1,12 @@
+{
+  "parent": "engine:iconItem",
+  "Item": {
+    "icon": "CommonEdibleFlora:Grape",
+    "stackId": "CommonEdibleFlora:Grape",
+    "consumedOnUse": true
+  },
+  "DisplayName": {
+    "name": "Grape"
+  }
+}
+

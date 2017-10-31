@@ -1,0 +1,17 @@
+{
+  "parent": "engine:iconItem",
+  "DisplayName": {
+    "name": "Grape Seed"
+  },
+  "Item": {
+    "icon": "CommonEdibleFlora:GrapeSeed",
+    "stackId": "Grape Seed"
+  },
+  "SeedDefinition": {},
+  "VineDefinition": {
+    "stem": "CommonEdibleFlora:GrapeVineStem",
+    "bud": "CommonEdibleFlora:GrapeBud",
+    "minGrowTime": 4000,
+    "maxGrowTime": 7000
+  }
+}

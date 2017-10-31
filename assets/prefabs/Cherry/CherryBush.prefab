@@ -1,0 +1,23 @@
+{
+  "BushDefinition": {
+    "growthStages": {
+      "CommonEdibleFlora:YoungCherryBush:engine:halfblock": {
+        "minTime": 5000,
+        "maxTime": 10000
+      },
+      "CommonEdibleFlora:YoungCherryBush": {
+        "minTime": 6000,
+        "maxTime": 12000
+      },
+      "CommonEdibleFlora:MatureCherryBush": {
+        "minTime": 6000,
+        "maxTime": 12000
+      },
+      "CommonEdibleFlora:FruitingCherryBush": {
+        "minTime": 6000,
+        "maxTime": 12000
+      }
+    },
+    "produce": "CommonEdibleFlora:Cherry"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "engine:iconItem",
+  "DisplayName": {
+    "name": "Cherry"
+  },
+  "Item": {
+    "icon": "CommonEdibleFlora:Cherry",
+    "stackId": "Cherry"
+  },
+  "SeedDefinition": {
+    "prefab": "CommonEdibleFlora:CherryBush"
+  }
+}

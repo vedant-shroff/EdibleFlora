@@ -1,0 +1,33 @@
+{
+  "parent": "engine:iconItem",
+  "DisplayName": {
+    "name": "Orange Seed"
+  },
+  "Item": {
+    "icon": "CommonEdibleFlora:OrangeSeed",
+    "stackId": "OrangeSeed"
+  },
+  "SeedDefinition": {},
+  "BushDefinition": {
+    "growthStages": {
+      "CommonEdibleFlora:YoungOrangeBush:engine:halfblock": {
+        "minTime": 1000,
+        "maxTime": 2500
+      },
+      "CommonEdibleFlora:YoungOrangeBush": {
+        "minTime": 5000,
+        "maxTime": 5000
+      },
+      "CommonEdibleFlora:MatureOrangeBush": {
+        "minTime": 5000,
+        "maxTime": 5000
+      },
+      "CommonEdibleFlora:FruitingOrangeBush": {
+        "minTime": 6000,
+        "maxTime": 10000
+      }
+    },
+    "seed": "CommonEdibleFlora:OrangeSeed",
+    "produce": "CommonEdibleFlora:Orange"
+  }
+}

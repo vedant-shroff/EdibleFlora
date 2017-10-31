@@ -1,0 +1,34 @@
+{
+  "parent": "engine:iconItem",
+  "DisplayName": {
+    "name": "Apple Seed"
+  },
+  "Item": {
+    "icon": "CommonEdibleFlora:AppleSeed",
+    "stackId": "Apple Seed"
+  },
+  "SeedDefinition": {},
+  "BushDefinition": {
+    "growthStages": {
+      "CommonEdibleFlora:YoungAppleBush:engine:halfblock": {
+        "minTime": 6000,
+        "maxTime": 12000
+      },
+      "CommonEdibleFlora:YoungAppleBush": {
+        "minTime": 7000,
+        "maxTime": 14000
+      },
+      "CommonEdibleFlora:MatureAppleBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      },
+      "CommonEdibleFlora:FruitingAppleBush": {
+        "minTime": 8000,
+        "maxTime": 16000
+      }
+    },
+    "seed": "CommonEdibleFlora:AppleSeed",
+    "produce": "CommonEdibleFlora:Apple",
+    "sustainable": true
+  }
+}
