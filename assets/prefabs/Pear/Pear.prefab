@@ -6,5 +6,18 @@
   "Item": {
     "icon": "CommonEdibleFlora:Pear",
     "stackId": "Pear"
+  },
+  "CraftingStationIngredient": {
+    "type": "Pear"
+  },
+  "Food": {
+    "filling": 1
+  },
+  "ItemHelp": {
+    "category": "Edible Flora",
+    "paragraphText": [
+      "A  sweet juicy fruit with a distorted oval shape.",
+      "Restores 1 food"
+    ]
   }
 }

@@ -9,5 +9,18 @@
   },
   "SeedDefinition": {
     "prefab": "CommonEdibleFlora:CherryBush"
+  },
+  "CraftingStationIngredient": {
+    "type": "Cherry"
+  },
+  "Food": {
+    "filling": 0.5
+  },
+  "ItemHelp": {
+    "category": "Edible Flora",
+    "paragraphText": [
+      "A sweet red berry containing a stone",
+      "Restores 0.5 food"
+    ]
   }
 }

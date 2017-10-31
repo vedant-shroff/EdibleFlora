@@ -7,6 +7,22 @@
   },
   "DisplayName": {
     "name": "Grape"
+  },
+  "CraftingStationIngredient": {
+    "type": "Grape"
+  },
+  "Food": {
+    "filling": 0.5
+  },
+  "Drink": {
+    "filling": 0.5
+  },
+  "ItemHelp": {
+    "category": "Edible Flora",
+    "paragraphText": [
+      "Small jucy berries joined together into a bunch",
+      "Restores 0.5 food and 0.5 water"
+    ]
   }
 }
 
