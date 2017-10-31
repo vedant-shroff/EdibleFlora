@@ -1,0 +1,8 @@
+{
+  "basedOn": "CommonEdibleFlora:BaseBush",
+  "displayName": "Grape Vine Stem",
+  "tiles": {
+    "sides": "CommonEdibleFlora:GrapeVineStem",
+    "topBottom": "CommonEdibleFlora:YoungGrapeBud"
+  }
+}

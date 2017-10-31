@@ -1,0 +1,5 @@
+{
+  "basedOn": "CommonEdibleFlora:BaseBush",
+  "displayName": "Young Apple Bush",
+  "tile": "CommonEdibleFlora:YoungAppleBush"
+}
