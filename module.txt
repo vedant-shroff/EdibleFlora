@@ -3,8 +3,12 @@
     "version" : "0.1.0-SNAPSHOT",
     "author" : "",
     "displayName" : "CommonEdibleFlora",
-    "description" : "",
+    "description" : "Adds a small number of edible produce",
     "dependencies" : [
+      {
+         "id" : "Core",
+         "minVersion" : "1.0.0"
+      },
       {
          "id" : "SimpleFarming",
          "minVersion" : "2.0.0"
