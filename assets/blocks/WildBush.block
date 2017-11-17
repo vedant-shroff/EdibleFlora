@@ -1,0 +1,8 @@
+{
+  "basedOn": "CommonEdibleFlora:BaseBush",
+  "displayName":"Wild Bush",
+  "tile": "CommonEdibleFlora:WildBush",
+  "entity": {
+    "prefab": "CommonEdibleFlora:WildBush"
+  }
+}
