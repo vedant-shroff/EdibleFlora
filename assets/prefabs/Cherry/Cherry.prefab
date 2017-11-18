@@ -1,14 +1,12 @@
 {
   "parent": "engine:iconItem",
-  "DisplayName": {
-    "name": "Cherry"
-  },
   "Item": {
     "icon": "CommonEdibleFlora:Cherry",
-    "stackId": "Cherry"
+    "stackId": "Cherry",
+    "consumedOnUse": true
   },
-  "SeedDefinition": {
-    "prefab": "CommonEdibleFlora:CherryBush"
+  "DisplayName": {
+    "name": "Cherry"
   },
   "CraftingStationIngredient": {
     "type": "Cherry"
@@ -22,5 +20,8 @@
       "A sweet red berry containing a stone",
       "Restores 0.5 food"
     ]
+  },
+  "SeedDefinition": {
+    "prefab": "CommonEdibleFlora:CherryBush"
   }
 }

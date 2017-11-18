@@ -1,11 +1,12 @@
 {
   "parent": "engine:iconItem",
-  "DisplayName": {
-    "name": "Pear"
-  },
   "Item": {
     "icon": "CommonEdibleFlora:Pear",
-    "stackId": "Pear"
+    "stackId": "Pear",
+    "consumedOnUse": true
+  },
+  "DisplayName": {
+    "name": "Pear"
   },
   "CraftingStationIngredient": {
     "type": "Pear"

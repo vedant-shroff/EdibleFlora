@@ -1,11 +1,12 @@
 {
   "parent": "engine:iconItem",
-  "DisplayName": {
-    "name": "Orange"
-  },
   "Item": {
     "icon": "CommonEdibleFlora:Orange",
-    "stackId": "orange"
+    "stackId": "orange",
+    "consumedOnUse": true
+  },
+  "DisplayName": {
+    "name": "Orange"
   },
   "CraftingStationIngredient": {
     "type": "Orange"
