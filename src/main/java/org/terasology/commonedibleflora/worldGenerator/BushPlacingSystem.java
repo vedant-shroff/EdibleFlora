@@ -15,8 +15,6 @@
  */
 package org.terasology.commonedibleflora.worldGenerator;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
@@ -46,6 +44,7 @@ public class BushPlacingSystem extends BaseComponentSystem {
         bushes[0] = prefabManager.getPrefab("CommonEdibleFlora:AppleSeed");
         bushes[1] = prefabManager.getPrefab("CommonEdibleFlora:PearSeed");
         bushes[2] = prefabManager.getPrefab("CommonEdibleFlora:Carrot");
+        bushes[3] = prefabManager.getPrefab("CommonEdibleFlora:OrangeSeed");
     }
 
     /**
@@ -58,7 +57,7 @@ public class BushPlacingSystem extends BaseComponentSystem {
      */
     @ReceiveEvent
     public void onWildBushDestroyed(CreateBlockDropsEvent event, EntityRef entity, WildBushComponent flagComponent, LocationComponent locationComponent) {
-        EntityRef seedItem = entityManager.create(bushes[random.nextInt(3)]);
+        EntityRef seedItem = entityManager.create(bushes[random.nextInt(bushes.length)]);
         seedItem.send(new DropItemEvent(locationComponent.getWorldPosition().add(0, 0.5f, 0)));
         seedItem.send(new ImpulseEvent(random.nextVector3f(22.0f)));
 
