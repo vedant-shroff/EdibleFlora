@@ -32,7 +32,7 @@ import org.terasology.world.block.entity.CreateBlockDropsEvent;
 
 @RegisterSystem(RegisterMode.ALWAYS)
 public class BushPlacingSystem extends BaseComponentSystem {
-    private Prefab[] bushes = new Prefab[3];
+    private Prefab[] bushes = new Prefab[4];
     private FastRandom random = new FastRandom();
     @In
     private PrefabManager prefabManager;
