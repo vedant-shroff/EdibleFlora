@@ -8,9 +8,6 @@
   "DisplayName": {
     "name": "Carrot"
   },
-  "CraftingStationIngredient": {
-    "type": "Carrot"
-  },
   "Food": {
     "filling": 1.5
   },

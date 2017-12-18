@@ -1,7 +1,7 @@
 {
     "id" : "CommonEdibleFlora",
     "version" : "0.1.0-SNAPSHOT",
-    "author" : "",
+    "author" : "jellysnake",
     "displayName" : "CommonEdibleFlora",
     "description" : "Adds a small number of edible produce",
     "dependencies" : [
@@ -12,6 +12,10 @@
       {
          "id" : "SimpleFarming",
          "minVersion" : "2.0.0"
+      },
+      {
+         "id" : "BasicCrafting",
+         "minVersion" : "0.1.0"
       },
       {
          "id" : "Hunger",

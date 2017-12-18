@@ -8,9 +8,6 @@
   "DisplayName": {
     "name": "Red Apple"
   },
-  "CraftingStationIngredient": {
-    "type": "Apple"
-  },
   "Food": {
     "filling": 1.5
   },

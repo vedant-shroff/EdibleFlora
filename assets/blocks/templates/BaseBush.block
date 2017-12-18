@@ -1,4 +1,5 @@
 {
+  "template": true,
   "hardness": 3,
   "mass": 100,
   "translucent": true,

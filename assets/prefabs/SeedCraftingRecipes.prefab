@@ -1,0 +1,51 @@
+{
+  "ListRecipes": {
+    "categories": [
+      "InHand",
+      "Seeds"
+    ],
+    "recipes": {
+      "CommonEdibleFlora:Blackberry": {
+        "inputs": {
+          "CommonEdibleFlora:OrangeSeed": 1,
+          "CommonEdibleFlora:AppleSeed": 1
+        },
+        "outputCount": 1
+      },
+      "CommonEdibleFlora:GrapeSeed": {
+        "inputs": {
+          "CommonEdibleFlora:PearSeed": 1,
+          "CommonEdibleFlora:Carrot": 1
+        },
+        "outputCount": 1
+      },
+      "CommonEdibleFlora:Cherry": {
+        "inputs": {
+          "CommonEdibleFlora:Carrot": 1,
+          "CommonEdibleFlora:OrangeSeed": 1
+        },
+        "outputCount": 1
+      },
+      "CommonEdibleFlora:StarfruitSeed": {
+        "inputs": {
+          "CommonEdibleFlora:AppleSeed": 1,
+          "CommonEdibleFlora:PearSeed": 1
+        },
+        "outputCount": 1
+      },
+      "CommonEdibleFlora:Banana": {
+        "inputs": {
+          "CommonEdibleFlora:PearSeed": 1,
+          "CommonEdibleFlora:OrangeSeed": 1
+        },
+        "outputCount": 1
+      },
+      "Core:Dirt": {
+        "inputs": {
+          "Seed": 2
+        },
+        "outputCount": 1
+      }
+    }
+  }
+}

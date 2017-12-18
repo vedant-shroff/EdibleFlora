@@ -1,0 +1,12 @@
+{
+  "template": false,
+  "categories": ["workstation"],
+  "entity": {
+    "prefab": "SeedWorkstation"
+  },
+  "rotation": "horizontal",
+  "tiles": {
+    "sides": "SeedStationSides",
+    "topBottom": "SeedStationTops"
+  }
+}

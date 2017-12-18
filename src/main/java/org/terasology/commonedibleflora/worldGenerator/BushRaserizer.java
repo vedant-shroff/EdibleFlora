@@ -17,13 +17,8 @@ package org.terasology.commonedibleflora.worldGenerator;
 
 
 import org.terasology.core.world.generator.facets.FloraFacet;
-import org.terasology.entitySystem.entity.EntityManager;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.entitySystem.prefab.Prefab;
-import org.terasology.entitySystem.prefab.PrefabManager;
 import org.terasology.math.geom.BaseVector3i;
 import org.terasology.registry.CoreRegistry;
-import org.terasology.simpleFarming.events.OnSeedPlanted;
 import org.terasology.utilities.random.FastRandom;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
