@@ -17,5 +17,8 @@
       "A  sweet juicy fruit with a distorted oval shape.",
       "Restores 1 food"
     ]
+  },
+  "SeedDefinition": {
+    "prefab": "CommonEdibleFlora:PearBush"
   }
 }

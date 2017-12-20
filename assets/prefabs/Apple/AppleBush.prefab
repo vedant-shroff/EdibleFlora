@@ -1,13 +1,4 @@
 {
-  "parent": "engine:iconItem",
-  "DisplayName": {
-    "name": "Apple Seed"
-  },
-  "Item": {
-    "icon": "CommonEdibleFlora:AppleSeed",
-    "stackId": "Apple Seed"
-  },
-  "SeedDefinition": {},
   "BushDefinition": {
     "growthStages": {
       "CommonEdibleFlora:YoungAppleBush:engine:halfblock": {
@@ -27,7 +18,6 @@
         "maxTime": 16000
       }
     },
-    "seed": "CommonEdibleFlora:AppleSeed",
     "produce": "CommonEdibleFlora:Apple",
     "sustainable": true
   }

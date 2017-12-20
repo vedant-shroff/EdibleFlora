@@ -1,13 +1,4 @@
 {
-  "parent": "engine:iconItem",
-  "DisplayName": {
-    "name": "Orange Seed"
-  },
-  "Item": {
-    "icon": "CommonEdibleFlora:OrangeSeed",
-    "stackId": "OrangeSeed"
-  },
-  "SeedDefinition": {},
   "BushDefinition": {
     "growthStages": {
       "CommonEdibleFlora:YoungOrangeBush:engine:halfblock": {
@@ -27,7 +18,6 @@
         "maxTime": 10000
       }
     },
-    "seed": "CommonEdibleFlora:OrangeSeed",
     "produce": "CommonEdibleFlora:Orange"
   }
 }

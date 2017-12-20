@@ -20,6 +20,13 @@
       "Small juicy berries joined together into a bunch",
       "Restores 0.5 food and 0.5 water"
     ]
+  },
+  "SeedDefinition": {},
+  "VineDefinition": {
+    "stem": "CommonEdibleFlora:GrapeVineStem",
+    "bud": "CommonEdibleFlora:GrapeBud",
+    "minGrowTime": 4000,
+    "maxGrowTime": 7000
   }
 }
 

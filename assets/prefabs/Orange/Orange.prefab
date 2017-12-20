@@ -20,5 +20,8 @@
       "A juicy fruit with a peelable skin",
       "Restores 0.5 food and 1 water"
     ]
+  },
+  "SeedDefinition": {
+    "prefab": "CommonEdibleFlora:OrangeBush"
   }
 }

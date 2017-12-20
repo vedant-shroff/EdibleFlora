@@ -1,13 +1,4 @@
 {
-  "parent": "engine:iconItem",
-  "DisplayName": {
-    "name": "Pear Seed"
-  },
-  "Item": {
-    "icon": "CommonEdibleFlora:PearSeed",
-    "stackId": "PearSeed"
-  },
-  "SeedDefinition": {},
   "BushDefinition": {
     "growthStages": {
       "CommonEdibleFlora:YoungPearBush:engine:halfblock": {
@@ -27,7 +18,6 @@
         "maxTime": 10000
       }
     },
-    "produce": "CommonEdibleFlora:Pear",
-    "seed": "CommonEdibleFlora:PearSeed"
+    "produce": "CommonEdibleFlora:Pear"
   }
 }

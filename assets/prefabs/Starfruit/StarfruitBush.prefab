@@ -1,13 +1,4 @@
 {
-  "parent": "engine:iconItem",
-  "DisplayName": {
-    "name": "Starfruit Seed"
-  },
-  "Item": {
-    "icon": "CommonEdibleFlora:StarfruitSeed",
-    "stackId": "Starfruit Seed"
-  },
-  "SeedDefinition": {},
   "BushDefinition": {
     "growthStages": {
       "CommonEdibleFlora:YoungStarfruitBush:engine:halfblock": {
@@ -27,7 +18,6 @@
         "maxTime": 16000
       }
     },
-    "seed": "CommonEdibleFlora:StarfruitSeed",
     "produce": "CommonEdibleFlora:Starfruit",
     "sustainable": true
   }

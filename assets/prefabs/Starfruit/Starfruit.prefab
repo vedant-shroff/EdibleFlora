@@ -18,8 +18,11 @@
     "category": "Edible Flora",
     "paragraphText": [
       "A striking star shaped fruit.",
-	  "It tastes like a cross between an apple and a grape",
+      "It tastes like a cross between an apple and a grape",
       "Restores 1.5 food and 0.5 water."
     ]
+  },
+  "SeedDefinition": {
+    "prefab": "CommonEdibleFlora:StarfruitBush"
   }
 }
