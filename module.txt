@@ -3,7 +3,7 @@
     "version" : "0.1.0-SNAPSHOT",
     "author" : "jellysnake",
     "displayName" : "CommonEdibleFlora",
-    "description" : "Adds a small number of edible produce",
+    "description" : "Adds a small number of edible produce which can be grown using SimpleFarmingq",
     "dependencies" : [
       {
          "id" : "Core",
