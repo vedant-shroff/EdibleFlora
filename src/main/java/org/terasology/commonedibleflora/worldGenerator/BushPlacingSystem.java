@@ -50,9 +50,10 @@ public class BushPlacingSystem extends BaseComponentSystem {
     /**
      * Called when the wild berry bush is destroyed.
      * It handles dropping a random seed from the selected bushes.
-     * @param event The event fired
-     * @param entity The wild bush entity
-     * @param flagComponent The component used to flag the wild berry bush
+     *
+     * @param event             The event fired
+     * @param entity            The wild bush entity
+     * @param flagComponent     The component used to flag the wild berry bush
      * @param locationComponent The location component of the bush
      */
     @ReceiveEvent

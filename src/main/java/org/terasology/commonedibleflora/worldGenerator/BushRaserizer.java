@@ -43,7 +43,8 @@ public class BushRaserizer implements WorldRasterizerPlugin {
     /**
      * Called once for each chunk being generated.
      * Places the WildBush randomly throughout the chunk.
-     * @param chunk The chunk being generated
+     *
+     * @param chunk       The chunk being generated
      * @param chunkRegion The chunk's region
      */
     @Override

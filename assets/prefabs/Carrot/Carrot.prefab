@@ -19,6 +19,6 @@
     ]
   },
   "SeedDefinition": {
-	"prefab":"CommonEdibleFlora:CarrotBush"
+    "prefab": "CommonEdibleFlora:CarrotBush"
   }
 }

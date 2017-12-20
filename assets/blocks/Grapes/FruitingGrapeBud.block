@@ -1,5 +1,5 @@
 {
-  "basedOn":"CommonEdibleFlora:BaseBush",
+  "basedOn": "CommonEdibleFlora:BaseBush",
   "displayName": "Fruiting Grape Bud",
   "tile": "CommonEdibleFlora:FruitingGrapeBud"
 }

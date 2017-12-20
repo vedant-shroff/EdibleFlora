@@ -39,12 +39,6 @@
           "CommonEdibleFlora:OrangeSeed": 1
         },
         "outputCount": 1
-      },
-      "Core:Dirt": {
-        "inputs": {
-          "Seed": 2
-        },
-        "outputCount": 1
       }
     }
   }
