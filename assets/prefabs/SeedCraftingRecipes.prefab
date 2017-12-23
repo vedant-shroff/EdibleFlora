@@ -5,38 +5,38 @@
       "Seeds"
     ],
     "recipes": {
-      "CommonEdibleFlora:Blackberry": {
+      "EdibleFlora:Blackberry": {
         "inputs": {
-          "CommonEdibleFlora:Orange": 1,
-          "CommonEdibleFlora:Apple": 1
+          "EdibleFlora:Orange": 1,
+          "EdibleFlora:Apple": 1
         },
         "outputCount": 1
       },
-      "CommonEdibleFlora:Grape": {
+      "EdibleFlora:Grape": {
         "inputs": {
-          "CommonEdibleFlora:Pear": 1,
-          "CommonEdibleFlora:Carrot": 1
+          "EdibleFlora:Pear": 1,
+          "EdibleFlora:Carrot": 1
         },
         "outputCount": 1
       },
-      "CommonEdibleFlora:Cherry": {
+      "EdibleFlora:Cherry": {
         "inputs": {
-          "CommonEdibleFlora:Carrot": 1,
-          "CommonEdibleFlora:Orange": 1
+          "EdibleFlora:Carrot": 1,
+          "EdibleFlora:Orange": 1
         },
         "outputCount": 1
       },
-      "CommonEdibleFlora:Starfruit": {
+      "EdibleFlora:Starfruit": {
         "inputs": {
-          "CommonEdibleFlora:Apple": 1,
-          "CommonEdibleFlora:Pear": 1
+          "EdibleFlora:Apple": 1,
+          "EdibleFlora:Pear": 1
         },
         "outputCount": 1
       },
-      "CommonEdibleFlora:Banana": {
+      "EdibleFlora:Banana": {
         "inputs": {
-          "CommonEdibleFlora:Pear": 1,
-          "CommonEdibleFlora:Orange": 1
+          "EdibleFlora:Pear": 1,
+          "EdibleFlora:Orange": 1
         },
         "outputCount": 1
       }

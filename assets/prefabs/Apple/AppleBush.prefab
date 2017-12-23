@@ -1,24 +1,24 @@
 {
   "BushDefinition": {
     "growthStages": {
-      "CommonEdibleFlora:YoungAppleBush:engine:halfblock": {
+      "EdibleFlora:YoungAppleBush:engine:halfblock": {
         "minTime": 6000,
         "maxTime": 12000
       },
-      "CommonEdibleFlora:YoungAppleBush": {
+      "EdibleFlora:YoungAppleBush": {
         "minTime": 7000,
         "maxTime": 14000
       },
-      "CommonEdibleFlora:MatureAppleBush": {
+      "EdibleFlora:MatureAppleBush": {
         "minTime": 8000,
         "maxTime": 16000
       },
-      "CommonEdibleFlora:FruitingAppleBush": {
+      "EdibleFlora:FruitingAppleBush": {
         "minTime": 8000,
         "maxTime": 16000
       }
     },
-    "produce": "CommonEdibleFlora:Apple",
+    "produce": "EdibleFlora:Apple",
     "sustainable": true
   }
 }

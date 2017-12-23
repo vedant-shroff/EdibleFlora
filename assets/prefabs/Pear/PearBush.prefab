@@ -1,23 +1,23 @@
 {
   "BushDefinition": {
     "growthStages": {
-      "CommonEdibleFlora:YoungPearBush:engine:halfblock": {
+      "EdibleFlora:YoungPearBush:engine:halfblock": {
         "minTime": 5000,
         "maxTime": 10000
       },
-      "CommonEdibleFlora:YoungPearBush": {
+      "EdibleFlora:YoungPearBush": {
         "minTime": 5000,
         "maxTime": 10000
       },
-      "CommonEdibleFlora:MaturePearBush": {
+      "EdibleFlora:MaturePearBush": {
         "minTime": 5000,
         "maxTime": 10000
       },
-      "CommonEdibleFlora:FruitingPearBush": {
+      "EdibleFlora:FruitingPearBush": {
         "minTime": 5000,
         "maxTime": 10000
       }
     },
-    "produce": "CommonEdibleFlora:Pear"
+    "produce": "EdibleFlora:Pear"
   }
 }

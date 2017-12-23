@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.commonedibleflora.worldGenerator;
+package org.terasology.edibleFlora.worldGenerator;
 
 
 import org.terasology.core.world.generator.facets.FloraFacet;
@@ -37,7 +37,7 @@ public class BushRaserizer implements WorldRasterizerPlugin {
     public void initialize() {
         BlockManager blockManager = CoreRegistry.get(BlockManager.class);
         air = blockManager.getBlock(BlockManager.AIR_ID);
-        wildBush = blockManager.getBlock("CommonEdibleFlora:WildBush");
+        wildBush = blockManager.getBlock("EdibleFlora:WildBush");
     }
 
     /**

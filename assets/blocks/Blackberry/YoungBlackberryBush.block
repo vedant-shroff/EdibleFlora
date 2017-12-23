@@ -1,5 +1,5 @@
 {
-  "basedOn": "CommonEdibleFlora:BaseBush",
+  "basedOn": "EdibleFlora:BaseBush",
   "displayName": "Young Blackberry Bush",
-  "tile": "CommonEdibleFlora:YoungBlackberryBush"
+  "tile": "EdibleFlora:YoungBlackberryBush"
 }

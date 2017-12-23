@@ -1,7 +1,7 @@
 {
   "parent": "engine:iconItem",
   "Item": {
-    "icon": "CommonEdibleFlora:Cherry",
+    "icon": "EdibleFlora:Cherry",
     "stackId": "Cherry",
     "consumedOnUse": true
   },
@@ -19,6 +19,6 @@
     ]
   },
   "SeedDefinition": {
-    "prefab": "CommonEdibleFlora:CherryBush"
+    "prefab": "EdibleFlora:CherryBush"
   }
 }

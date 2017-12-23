@@ -1,24 +1,24 @@
 {
   "BushDefinition": {
     "growthStages": {
-      "CommonEdibleFlora:YoungStarfruitBush:engine:halfblock": {
+      "EdibleFlora:YoungStarfruitBush:engine:halfblock": {
         "minTime": 6000,
         "maxTime": 12000
       },
-      "CommonEdibleFlora:YoungStarfruitBush": {
+      "EdibleFlora:YoungStarfruitBush": {
         "minTime": 7000,
         "maxTime": 14000
       },
-      "CommonEdibleFlora:MatureStarfruitBush": {
+      "EdibleFlora:MatureStarfruitBush": {
         "minTime": 8000,
         "maxTime": 16000
       },
-      "CommonEdibleFlora:FruitingStarfruitBush": {
+      "EdibleFlora:FruitingStarfruitBush": {
         "minTime": 8000,
         "maxTime": 16000
       }
     },
-    "produce": "CommonEdibleFlora:Starfruit",
+    "produce": "EdibleFlora:Starfruit",
     "sustainable": true
   }
 }

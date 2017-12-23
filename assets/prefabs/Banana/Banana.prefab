@@ -1,8 +1,8 @@
 {
   "parent": "engine:iconItem",
   "Item": {
-    "icon": "CommonEdibleFlora:Banana",
-    "stackId": "CommonEdibleFlora:Banana",
+    "icon": "EdibleFlora:Banana",
+    "stackId": "EdibleFlora:Banana",
     "consumedOnUse": true
   },
   "DisplayName": {
@@ -19,6 +19,6 @@
     ]
   },
   "SeedDefinition": {
-    "prefab": "CommonEdibleFlora:BananaBush"
+    "prefab": "EdibleFlora:BananaBush"
   }
 }

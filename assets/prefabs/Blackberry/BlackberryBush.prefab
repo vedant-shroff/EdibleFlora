@@ -1,24 +1,24 @@
 {
   "BushDefinition": {
     "growthStages": {
-      "CommonEdibleFlora:YoungBlackberryBush:engine:halfblock": {
+      "EdibleFlora:YoungBlackberryBush:engine:halfblock": {
         "minTime": 5000,
         "maxTime": 7000
       },
-      "CommonEdibleFlora:YoungBlackberryBush": {
+      "EdibleFlora:YoungBlackberryBush": {
         "minTime": 5000,
         "maxTime": 8000
       },
-      "CommonEdibleFlora:MatureBlackberryBush": {
+      "EdibleFlora:MatureBlackberryBush": {
         "minTime": 6000,
         "maxTime": 8000
       },
-      "CommonEdibleFlora:FruitingBlackberryBush": {
+      "EdibleFlora:FruitingBlackberryBush": {
         "minTime": 6000,
         "maxTime": 9000
       }
     },
-    "produce": "CommonEdibleFlora:Blackberry",
+    "produce": "EdibleFlora:Blackberry",
     "sustainable": true
   }
 }

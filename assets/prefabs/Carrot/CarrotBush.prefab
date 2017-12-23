@@ -1,24 +1,24 @@
 {
   "BushDefinition": {
     "growthStages": {
-      "CommonEdibleFlora:YoungCarrotBush:engine:halfblock": {
+      "EdibleFlora:YoungCarrotBush:engine:halfblock": {
         "minTime": 6000,
         "maxTime": 12000
       },
-      "CommonEdibleFlora:YoungCarrotBush": {
+      "EdibleFlora:YoungCarrotBush": {
         "minTime": 7000,
         "maxTime": 14000
       },
-      "CommonEdibleFlora:MatureCarrotBush": {
+      "EdibleFlora:MatureCarrotBush": {
         "minTime": 8000,
         "maxTime": 16000
       },
-      "CommonEdibleFlora:FruitingCarrotBush": {
+      "EdibleFlora:FruitingCarrotBush": {
         "minTime": 8000,
         "maxTime": 16000
       }
     },
-    "produce": "CommonEdibleFlora:Carrot",
+    "produce": "EdibleFlora:Carrot",
     "sustainable": false
   }
 }

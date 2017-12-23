@@ -1,23 +1,23 @@
 {
   "BushDefinition": {
     "growthStages": {
-      "CommonEdibleFlora:YoungOrangeBush:engine:halfblock": {
+      "EdibleFlora:YoungOrangeBush:engine:halfblock": {
         "minTime": 1000,
         "maxTime": 2500
       },
-      "CommonEdibleFlora:YoungOrangeBush": {
+      "EdibleFlora:YoungOrangeBush": {
         "minTime": 5000,
         "maxTime": 5000
       },
-      "CommonEdibleFlora:MatureOrangeBush": {
+      "EdibleFlora:MatureOrangeBush": {
         "minTime": 5000,
         "maxTime": 5000
       },
-      "CommonEdibleFlora:FruitingOrangeBush": {
+      "EdibleFlora:FruitingOrangeBush": {
         "minTime": 6000,
         "maxTime": 10000
       }
     },
-    "produce": "CommonEdibleFlora:Orange"
+    "produce": "EdibleFlora:Orange"
   }
 }

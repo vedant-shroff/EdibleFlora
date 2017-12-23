@@ -1,24 +1,24 @@
 {
   "BushDefinition": {
     "growthStages": {
-      "CommonEdibleFlora:YoungBananaBush:engine:halfblock": {
+      "EdibleFlora:YoungBananaBush:engine:halfblock": {
         "minTime": 6000,
         "maxTime": 12000
       },
-      "CommonEdibleFlora:YoungBananaBush": {
+      "EdibleFlora:YoungBananaBush": {
         "minTime": 7000,
         "maxTime": 14000
       },
-      "CommonEdibleFlora:MatureBananaBush": {
+      "EdibleFlora:MatureBananaBush": {
         "minTime": 8000,
         "maxTime": 16000
       },
-      "CommonEdibleFlora:FruitingBananaBush": {
+      "EdibleFlora:FruitingBananaBush": {
         "minTime": 8000,
         "maxTime": 16000
       }
     },
-    "produce": "CommonEdibleFlora:Banana",
+    "produce": "EdibleFlora:Banana",
     "sustainable": true
   }
 }
