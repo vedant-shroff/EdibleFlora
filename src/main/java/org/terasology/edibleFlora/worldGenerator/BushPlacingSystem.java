@@ -41,10 +41,10 @@ public class BushPlacingSystem extends BaseComponentSystem {
 
     @Override
     public void postBegin() {
-        bushes[0] = prefabManager.getPrefab("EdibleFlora:AppleSeed");
-        bushes[1] = prefabManager.getPrefab("EdibleFlora:PearSeed");
+        bushes[0] = prefabManager.getPrefab("EdibleFlora:Apple");
+        bushes[1] = prefabManager.getPrefab("EdibleFlora:Pear");
         bushes[2] = prefabManager.getPrefab("EdibleFlora:Carrot");
-        bushes[3] = prefabManager.getPrefab("EdibleFlora:OrangeSeed");
+        bushes[3] = prefabManager.getPrefab("EdibleFlora:Orange");
     }
 
     /**

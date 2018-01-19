@@ -18,7 +18,7 @@
         "maxTime": 12000
       }
     },
-    "seed": "EdibleFlora:GrapeSeed",
+    "seed": "EdibleFlora:Grape",
     "produce": "EdibleFlora:Grape"
   }
 }
