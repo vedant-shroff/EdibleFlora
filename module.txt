@@ -1,29 +1,15 @@
 {
     "id" : "EdibleFlora",
-    "version" : "0.1.0-SNAPSHOT",
+    "version" : "0.1.1-SNAPSHOT",
     "author" : "jellysnake",
     "displayName" : "EdibleFlora",
     "description" : "Adds a small number of edible produce which can be grown using SimpleFarming",
     "dependencies" : [
-      {
-         "id" : "Core",
-         "minVersion" : "1.0.0"
-      },
-      {
-         "id" : "SimpleFarming",
-         "minVersion" : "2.0.0"
-      },
-      {
-         "id" : "BasicCrafting",
-         "minVersion" : "0.1.0"
-      },
-      {
-         "id" : "Hunger",
-          "minVersion" : "1.0.0"
-      },
-      {
-         "id" : "Thirst",
-          "minVersion" : "1.0.0"
-      }],
+        {"id" : "Core", "minVersion" : "2.0.0"},
+        {"id" : "SimpleFarming", "minVersion" : "2.0.0"},
+        {"id" : "BasicCrafting", "minVersion" : "0.1.0"},
+        {"id" : "Hunger", "minVersion" : "1.0.0"},
+        {"id" : "Thirst", "minVersion" : "1.0.0"}
+    ],
     "serverSideOnly" : false
 }
