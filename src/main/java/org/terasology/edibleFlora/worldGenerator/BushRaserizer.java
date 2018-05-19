@@ -34,6 +34,14 @@ import org.terasology.world.generator.plugin.RegisterPlugin;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The bush rasterizer looks for all prefabs with a WildBushComponent and BushDefinitionComponent
+ * and replaces flora with a bush.
+ *
+ * Be sure that your bushes meet these requirements:
+ * 1. The block that is placed into the world has a related entity that includes the BushDefinitionComponent
+ * 2. The currentStage of the BushDefinitionComponent matches the block that gets put into the world
+ */
 @RegisterPlugin
 public class BushRaserizer implements WorldRasterizerPlugin {
     private BlockManager blockManager;
@@ -71,8 +79,8 @@ public class BushRaserizer implements WorldRasterizerPlugin {
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
 
         FloraFacet facet = chunkRegion.getFacet(FloraFacet.class);
-        facet.getRelativeEntries().keySet().stream().filter(pos -> chunk.getBlock(pos).equals(air)).forEach((BaseVector3i pos) -> {
-            if (random.nextFloat() < 0.05) {
+        facet.getRelativeEntries().keySet().stream().forEach((BaseVector3i pos) -> {
+            if (random.nextFloat() < 0.02 && chunk.getBlock(pos).equals(air)) {
                 Block bush = bushes.get(random.nextInt(bushes.size()));
                 chunk.setBlock(pos, bush);
             }
