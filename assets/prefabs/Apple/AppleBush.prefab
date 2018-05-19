@@ -18,7 +18,9 @@
         "maxTime": 16000
       }
     },
+    "currentStage": 3,
     "produce": "EdibleFlora:Apple",
     "sustainable": true
-  }
+  },
+  "WildBush": {}
 }

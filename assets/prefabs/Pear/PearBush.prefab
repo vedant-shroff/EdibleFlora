@@ -18,6 +18,8 @@
         "maxTime": 10000
       }
     },
+    "currentStage": 3,
     "produce": "EdibleFlora:Pear"
-  }
+  },
+  "WildBush": {}
 }

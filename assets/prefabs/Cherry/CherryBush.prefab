@@ -18,6 +18,8 @@
         "maxTime": 12000
       }
     },
+    "currentStage": 3,
     "produce": "EdibleFlora:Cherry"
-  }
+  },
+  "WildBush": {}
 }

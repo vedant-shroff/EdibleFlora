@@ -1,5 +1,8 @@
 {
   "basedOn": "EdibleFlora:BaseBush",
   "displayName": "Fruiting Orange Bush",
+  "entity": {
+    "prefab": "EdibleFlora:OrangeBush"
+  },
   "tile": "EdibleFlora:FruitingOrangeBush"
 }

@@ -18,7 +18,9 @@
         "maxTime": 9000
       }
     },
+    "currentStage": 3,
     "produce": "EdibleFlora:Blackberry",
     "sustainable": true
-  }
+  },
+  "WildBush": {}
 }

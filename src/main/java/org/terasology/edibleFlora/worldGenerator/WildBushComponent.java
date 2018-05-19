@@ -18,7 +18,8 @@ package org.terasology.edibleFlora.worldGenerator;
 import org.terasology.entitySystem.Component;
 
 /**
- * A flag component used to mark the wild berry bush
+ * A flag component used to mark prefabs that contain a bush definition.
+ * The current stage of the bush definition will then be placed in the world on chunk generation.
  */
 public class WildBushComponent implements Component {
 }

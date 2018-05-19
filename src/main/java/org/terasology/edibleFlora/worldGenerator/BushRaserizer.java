@@ -17,8 +17,12 @@ package org.terasology.edibleFlora.worldGenerator;
 
 
 import org.terasology.core.world.generator.facets.FloraFacet;
+import org.terasology.entitySystem.prefab.Prefab;
+import org.terasology.entitySystem.prefab.PrefabManager;
 import org.terasology.math.geom.BaseVector3i;
 import org.terasology.registry.CoreRegistry;
+import org.terasology.registry.In;
+import org.terasology.simpleFarming.components.BushDefinitionComponent;
 import org.terasology.utilities.random.FastRandom;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
@@ -27,17 +31,33 @@ import org.terasology.world.generation.Region;
 import org.terasology.world.generation.WorldRasterizerPlugin;
 import org.terasology.world.generator.plugin.RegisterPlugin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RegisterPlugin
 public class BushRaserizer implements WorldRasterizerPlugin {
+    private BlockManager blockManager;
+    private PrefabManager prefabManager;
+
     private FastRandom random = new FastRandom();
     private Block air;
-    private Block wildBush;
+    private List<Block> bushes = new ArrayList<>();
 
     @Override
     public void initialize() {
-        BlockManager blockManager = CoreRegistry.get(BlockManager.class);
+        blockManager = CoreRegistry.get(BlockManager.class);
+        prefabManager = CoreRegistry.get(PrefabManager.class);
+
         air = blockManager.getBlock(BlockManager.AIR_ID);
-        wildBush = blockManager.getBlock("EdibleFlora:WildBush");
+
+        for(Prefab bushPrefab: prefabManager.listPrefabs(WildBushComponent.class)) {
+            BushDefinitionComponent bushDefinition = bushPrefab.getComponent(BushDefinitionComponent.class);
+            if( bushDefinition != null) {
+                String blockUri = bushDefinition.growthStages.keySet().stream().skip(bushDefinition.currentStage).findFirst().get();
+                Block block = blockManager.getBlock(blockUri);
+                bushes.add(block);
+            }
+        }
     }
 
     /**
@@ -53,7 +73,8 @@ public class BushRaserizer implements WorldRasterizerPlugin {
         FloraFacet facet = chunkRegion.getFacet(FloraFacet.class);
         facet.getRelativeEntries().keySet().stream().filter(pos -> chunk.getBlock(pos).equals(air)).forEach((BaseVector3i pos) -> {
             if (random.nextFloat() < 0.05) {
-                chunk.setBlock(pos, wildBush);
+                Block bush = bushes.get(random.nextInt(bushes.size()));
+                chunk.setBlock(pos, bush);
             }
         });
     }

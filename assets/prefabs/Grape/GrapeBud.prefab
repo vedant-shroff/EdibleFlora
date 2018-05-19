@@ -18,7 +18,9 @@
         "maxTime": 12000
       }
     },
+    "currentStage": 3,
     "seed": "EdibleFlora:Grape",
     "produce": "EdibleFlora:Grape"
-  }
+  },
+  "WildBush": {}
 }
