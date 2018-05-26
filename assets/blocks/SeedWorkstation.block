@@ -6,7 +6,7 @@
   "entity": {
     "prefab": "SeedWorkstation"
   },
-  "rotation": "horizontal",
+  "family": "horizontal",
   "tiles": {
     "sides": "SeedStationSides",
     "topBottom": "SeedStationTops"
