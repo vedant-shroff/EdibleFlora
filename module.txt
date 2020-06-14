@@ -9,7 +9,8 @@
         { "id": "CoreWorlds", "minVersion": "1.1.0" },
         { "id": "Hunger", "minVersion": "1.1.0" },
         { "id": "SimpleFarming", "minVersion": "2.1.0" },
-        { "id": "Thirst", "minVersion": "1.0.0" }
+        { "id": "Thirst", "minVersion": "1.0.0" },
+        { "id": "Genome", "minVersion": "1.0.0" }
     ],
     "serverSideOnly": false,
     "isAsset": true

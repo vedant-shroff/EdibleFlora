@@ -16,9 +16,14 @@
 package org.terasology.edibleFlora.worldGenerator;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.terasology.core.world.generator.facets.FloraFacet;
+import org.terasology.edibleFlora.events.OnSpawn;
+import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.prefab.Prefab;
 import org.terasology.entitySystem.prefab.PrefabManager;
+import org.terasology.genome.component.GenomeComponent;
 import org.terasology.math.geom.BaseVector3i;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.registry.In;
@@ -51,6 +56,8 @@ public class BushRasterizer implements WorldRasterizerPlugin {
     private Block air;
     private List<Block> bushes = new ArrayList<>();
 
+    private static final Logger LOGGER = LoggerFactory.getLogger("BushRasterizer.class");
+
     @Override
     public void initialize() {
         blockManager = CoreRegistry.get(BlockManager.class);
@@ -82,7 +89,10 @@ public class BushRasterizer implements WorldRasterizerPlugin {
         facet.getRelativeEntries().keySet().stream().forEach((BaseVector3i pos) -> {
             if (random.nextFloat() < 0.02 && chunk.getBlock(pos).equals(air)) {
                 Block bush = bushes.get(random.nextInt(bushes.size()));
+                EntityRef bushEntity = bush.getEntity();
+                bushEntity.send(new OnSpawn(bushEntity));
                 chunk.setBlock(pos, bush);
+                //LOGGER.info(bush.getEntity().getComponent(GenomeComponent.class).genes);
             }
         });
     }
