@@ -16,6 +16,7 @@
 
 package org.terasology.edibleFlora.genome;
 
+import com.google.common.base.Function;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.terasology.edibleFlora.events.OnSpawn;
@@ -25,22 +26,40 @@ import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
+import org.terasology.genome.GenomeDefinition;
+import org.terasology.genome.GenomeRegistry;
+import org.terasology.genome.breed.BreedingAlgorithm;
+import org.terasology.genome.breed.ContinuousBreedingAlgorithm;
+import org.terasology.genome.breed.mutator.GeneMutator;
+import org.terasology.genome.breed.mutator.VocabularyGeneMutator;
 import org.terasology.genome.component.GenomeComponent;
+import org.terasology.genome.genomeMap.SeedBasedGenomeMap;
 import org.terasology.logic.characters.CharacterHeldItemComponent;
 import org.terasology.logic.console.commandSystem.annotations.Command;
 import org.terasology.logic.console.commandSystem.annotations.Sender;
 import org.terasology.network.ClientComponent;
+import org.terasology.registry.In;
 import org.terasology.simpleFarming.components.BushDefinitionComponent;
 import org.terasology.simpleFarming.events.ProduceCreated;
+import org.terasology.utilities.random.FastRandom;
+import org.terasology.world.WorldProvider;
 import org.terasology.world.block.BlockComponent;
+
+import javax.annotation.Nullable;
 
 /**
  * System managing genetics of all plants
  */
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class GenomeAuthoritySystem extends BaseComponentSystem {
+    @In
+    private GenomeRegistry genomeRegistry;
+    @In
+    private WorldProvider worldProvider;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GenomeAuthoritySystem.class);
+
+    private static String genomeRegistryPrefix = "EdibleFlora:";
 
     @ReceiveEvent
     public void onSpawn(OnSpawn event, EntityRef bush) {
@@ -61,13 +80,20 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
             genomeComponent.genomeId = producer.getComponent(GenomeComponent.class).genomeId;
             genomeComponent.genes = producer.getComponent(GenomeComponent.class).genes;
             LOGGER.info(genomeComponent.genes);
-            produce.addOrSaveComponent(genomeComponent);
         } else {
+            FastRandom rand = new FastRandom();
             LOGGER.info("Dont have a genome component, giving a new one now");
-            genomeComponent.genomeId = "TesterTesting";
-            genomeComponent.genes = "TTttZ";
-            produce.addOrSaveComponent(genomeComponent);
+            genomeComponent.genomeId = producer.getParentPrefab().getName();
+            LOGGER.info("Parent prefab is " + producer.getParentPrefab().getName());
+//            genomeComponent.genes = "TTttZ";
+            if (genomeRegistry.getGenomeDefinition(genomeComponent.genomeId) == null) {
+                LOGGER.info("Making new genome map for "+genomeComponent.genomeId);
+                addPropertyMap(producer, genomeComponent.genomeId);
+            }
+            genomeComponent.genes =
+                    "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" + "ABCDEFGHIJK".charAt(rand.nextInt(9));
         }
+        produce.addOrSaveComponent(genomeComponent);
 
     }
 
@@ -77,12 +103,30 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
         if (character.hasComponent(CharacterHeldItemComponent.class)) {
             EntityRef selectedItem = character.getComponent(CharacterHeldItemComponent.class).selectedItem;
             if (selectedItem.hasComponent(GenomeComponent.class)) {
-                return selectedItem.getComponent(GenomeComponent.class).genes;
+                return "Has " + selectedItem.getComponent(GenomeComponent.class).genes;
             } else {
                 return "Held item does not have a Genome Component";
             }
         } else {
             return "Command not valid for current conditions.";
         }
+    }
+
+    private void addPropertyMap(EntityRef entity, String genomeId) {
+        LOGGER.info("Registering new map for " + genomeId);
+        SeedBasedGenomeMap genomeMap = new SeedBasedGenomeMap(worldProvider.getSeed().hashCode());
+        String geneVocabulary = "ABCDEFGHIJK";
+        GeneMutator geneMutator = new VocabularyGeneMutator(geneVocabulary);
+        BreedingAlgorithm continuousBreedingAlgorithm = new ContinuousBreedingAlgorithm(0.3f, geneMutator);
+        genomeMap.addSeedBasedProperty("filling", 0, 1, 2, Integer.class, continuousBreedingAlgorithm,
+                new Function<String, Integer>() {
+                    @Nullable
+                    @Override
+                    public Integer apply(@Nullable String input) {
+                        return (input.charAt(0) - 'A' + 5);
+                    }
+                });
+        GenomeDefinition genomeDefinition = new GenomeDefinition(continuousBreedingAlgorithm, genomeMap);
+        genomeRegistry.registerType(genomeId, genomeDefinition);
     }
 }
