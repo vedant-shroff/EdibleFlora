@@ -40,6 +40,8 @@ import org.terasology.logic.console.commandSystem.annotations.Sender;
 import org.terasology.network.ClientComponent;
 import org.terasology.registry.In;
 import org.terasology.simpleFarming.components.BushDefinitionComponent;
+import org.terasology.simpleFarming.events.BeforePlanted;
+import org.terasology.simpleFarming.events.OnSeedPlanted;
 import org.terasology.simpleFarming.events.ProduceCreated;
 import org.terasology.utilities.random.FastRandom;
 import org.terasology.world.WorldProvider;
@@ -71,30 +73,54 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
     }
 
     @ReceiveEvent
-    public void onProduceCreated(ProduceCreated event, EntityRef producer) {
+    public void onProduceCreated(ProduceCreated event, EntityRef creator) {
         //check if it has genome comp, otherwise give random below
-        LOGGER.info("inside");
+        EntityRef producer = event.getCreator();
         GenomeComponent genomeComponent = new GenomeComponent();
+        //might have some issues regarding npe if bush is not sustainable
         EntityRef produce = event.getProduce();
         if (producer.hasComponent(GenomeComponent.class)) {
             genomeComponent.genomeId = producer.getComponent(GenomeComponent.class).genomeId;
             genomeComponent.genes = producer.getComponent(GenomeComponent.class).genes;
-            LOGGER.info(genomeComponent.genes);
+            LOGGER.info("Has genome component already " + genomeComponent.genes);
         } else {
             FastRandom rand = new FastRandom();
             LOGGER.info("Dont have a genome component, giving a new one now");
             genomeComponent.genomeId = producer.getParentPrefab().getName();
             LOGGER.info("Parent prefab is " + producer.getParentPrefab().getName());
-//            genomeComponent.genes = "TTttZ";
             if (genomeRegistry.getGenomeDefinition(genomeComponent.genomeId) == null) {
-                LOGGER.info("Making new genome map for "+genomeComponent.genomeId);
+                LOGGER.info("Making new genome map for " + genomeComponent.genomeId);
                 addPropertyMap(producer, genomeComponent.genomeId);
             }
+            //needs to be random based on vocabulary
             genomeComponent.genes =
-                    "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" + "ABCDEFGHIJK".charAt(rand.nextInt(9));
+                    "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" +
+                            "ABCDEFGHIJK".charAt(rand.nextInt(9));
+//            producer.addOrSaveComponent(genomeComponent);
+            if (producer!=null) {
+                producer.addOrSaveComponent(genomeComponent);
+            }
         }
         produce.addOrSaveComponent(genomeComponent);
+    }
 
+//    @ReceiveEvent(priority = EventPriority.PRIORITY_HIGH)
+//    public void onBushPlanted(OnSeedPlanted event, EntityRef bush, BushDefinitionComponent bushComponent) {
+//        LOGGER.info("Ok cool this was called we coooooooo");
+//        bush.saveComponent(bush.getComponent(GenomeComponent.class));
+//        bush.getComponent();
+//    }
+
+    @ReceiveEvent
+    public void onBeforePlantedEvent(BeforePlanted event, EntityRef plant) {
+        EntityRef seed = event.getSeed();
+        if (seed.hasComponent(GenomeComponent.class)) {
+            LOGGER.info("Seed had genome comp, giving it to plant" + (seed.getComponent(GenomeComponent.class)).genes);
+            plant.addOrSaveComponent(seed.getComponent(GenomeComponent.class));
+        }
+        else {
+            LOGGER.info("seed didnt have genome comp");
+        }
     }
 
     @Command(shortDescription = "Prints genome of held item if possible.")
