@@ -104,13 +104,6 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
         produce.addOrSaveComponent(genomeComponent);
     }
 
-//    @ReceiveEvent(priority = EventPriority.PRIORITY_HIGH)
-//    public void onBushPlanted(OnSeedPlanted event, EntityRef bush, BushDefinitionComponent bushComponent) {
-//        LOGGER.info("Ok cool this was called we coooooooo");
-//        bush.saveComponent(bush.getComponent(GenomeComponent.class));
-//        bush.getComponent();
-//    }
-
     @ReceiveEvent
     public void onBeforePlantedEvent(BeforePlanted event, EntityRef plant) {
         EntityRef seed = event.getSeed();
