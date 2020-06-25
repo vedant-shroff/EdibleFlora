@@ -33,20 +33,24 @@ import org.terasology.genome.breed.mutator.VocabularyGeneMutator;
 import org.terasology.genome.component.GenomeComponent;
 import org.terasology.genome.genomeMap.SeedBasedGenomeMap;
 import org.terasology.logic.characters.CharacterHeldItemComponent;
+import org.terasology.logic.common.ActivateEvent;
 import org.terasology.logic.common.RetainComponentsComponent;
 import org.terasology.logic.console.commandSystem.annotations.Command;
 import org.terasology.logic.console.commandSystem.annotations.Sender;
+import org.terasology.logic.delay.DelayedActionTriggeredEvent;
 import org.terasology.network.ClientComponent;
 import org.terasology.registry.In;
 import org.terasology.simpleFarming.components.BushDefinitionComponent;
+import org.terasology.simpleFarming.components.BushGrowthStage;
+import org.terasology.simpleFarming.components.SeedDefinitionComponent;
 import org.terasology.simpleFarming.events.AddGenomeRetention;
 import org.terasology.simpleFarming.events.BeforePlanted;
-import org.terasology.simpleFarming.events.DoDestroyPlant;
 import org.terasology.simpleFarming.events.ProduceCreated;
 import org.terasology.simpleFarming.events.TransferGenomeEvent;
+import org.terasology.simpleFarming.systems.PlantAuthoritySystem;
 import org.terasology.utilities.random.FastRandom;
 import org.terasology.world.WorldProvider;
-import org.terasology.world.block.entity.CreateBlockDropsEvent;
+import org.terasology.world.block.BlockComponent;
 
 import javax.annotation.Nullable;
 
@@ -62,13 +66,20 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GenomeAuthoritySystem.class);
 
-    private static String genomeRegistryPrefix = "EdibleFlora:";
-
+    /**
+     * Called immediately after a bush has been harvested.
+     * <p>
+     * Checks the genome component of the bush and assigns it to the seed if it had genes already.
+     * If the bush did not have a GenomeComponent, it is assigned as this is the first harvest
+     * A new Genome Definition is created for the family
+     *
+     * @param event the Produce created event
+     * @param creator the creator(bush) of the produce
+     */
     @ReceiveEvent
     public void onProduceCreated(ProduceCreated event, EntityRef creator) {
         EntityRef producer = event.getCreator();
         GenomeComponent genomeComponent = new GenomeComponent();
-        //might have some issues regarding npe if bush is not sustainable
         EntityRef produce = event.getProduce();
         if (producer.hasComponent(GenomeComponent.class)) {
             genomeComponent.genomeId = producer.getComponent(GenomeComponent.class).genomeId;
@@ -80,7 +91,7 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
                 LOGGER.info("Defining new genome map for " + genomeComponent.genomeId);
                 addPropertyMap(producer, genomeComponent.genomeId);
             }
-            //needs to be random based on vocabulary
+            //TODO : needs to be random based on vocabulary
             genomeComponent.genes =
                     "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" +
                             "ABCDEFGHIJK".charAt(rand.nextInt(9));
@@ -91,6 +102,15 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
         produce.addOrSaveComponent(genomeComponent);
     }
 
+    /**
+     * Called immediately after a bush has been harvested.
+     * <p>
+     * Checks the genome component of the seed and transfers it to the plant that was planted
+     * if the seed does not contain a genome component, the component is assigned on first harvest
+     *
+     * @param event the Before Planted event
+     * @param plant the plant that is being planted
+     */
     @ReceiveEvent
     public void onBeforePlantedEvent(BeforePlanted event, EntityRef plant) {
         EntityRef seed = event.getSeed();
@@ -99,11 +119,24 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
         }
     }
 
+    /**
+     * Transfers the GenomeComponent across different stages of bush growth
+     * @param event the Transfer Genome Event
+     * @param bush the bush that is growing
+     * @param bushComponent bushComponent to check if it is a bush
+     * @param genomeComponent genomeComponent to check if the bush has a genomeComponent to pass on
+     */
     @ReceiveEvent
     public void onTransferGenomeEvent(TransferGenomeEvent event, EntityRef bush, BushDefinitionComponent bushComponent, GenomeComponent genomeComponent) {
         event.getTransferEntity().addOrSaveComponent(genomeComponent);
     }
 
+    /**
+     * Adds the GenomeComponent to the RetainComponentsComponent of an entity
+     * Event handler added to maintain Genome optional dependency
+     * @param event the AddGenomeRetention event
+     * @param entity the entity whose RetainComponentsComponent is to be modified
+     */
     @ReceiveEvent
     public void addGenomeRetentionEvent(AddGenomeRetention event, EntityRef entity){
         RetainComponentsComponent retainComponentsComponent = new RetainComponentsComponent();
