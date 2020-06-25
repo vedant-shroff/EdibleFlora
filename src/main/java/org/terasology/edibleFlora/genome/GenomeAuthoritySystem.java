@@ -19,9 +19,7 @@ package org.terasology.edibleFlora.genome;
 import com.google.common.base.Function;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.terasology.edibleFlora.events.OnSpawn;
 import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.entitySystem.event.EventPriority;
 import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
@@ -35,17 +33,20 @@ import org.terasology.genome.breed.mutator.VocabularyGeneMutator;
 import org.terasology.genome.component.GenomeComponent;
 import org.terasology.genome.genomeMap.SeedBasedGenomeMap;
 import org.terasology.logic.characters.CharacterHeldItemComponent;
+import org.terasology.logic.common.RetainComponentsComponent;
 import org.terasology.logic.console.commandSystem.annotations.Command;
 import org.terasology.logic.console.commandSystem.annotations.Sender;
 import org.terasology.network.ClientComponent;
 import org.terasology.registry.In;
 import org.terasology.simpleFarming.components.BushDefinitionComponent;
+import org.terasology.simpleFarming.events.AddGenomeRetention;
 import org.terasology.simpleFarming.events.BeforePlanted;
-import org.terasology.simpleFarming.events.OnSeedPlanted;
+import org.terasology.simpleFarming.events.DoDestroyPlant;
 import org.terasology.simpleFarming.events.ProduceCreated;
+import org.terasology.simpleFarming.events.TransferGenomeEvent;
 import org.terasology.utilities.random.FastRandom;
 import org.terasology.world.WorldProvider;
-import org.terasology.world.block.BlockComponent;
+import org.terasology.world.block.entity.CreateBlockDropsEvent;
 
 import javax.annotation.Nullable;
 
@@ -64,17 +65,7 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
     private static String genomeRegistryPrefix = "EdibleFlora:";
 
     @ReceiveEvent
-    public void onSpawn(OnSpawn event, EntityRef bush) {
-        GenomeComponent genomeComponent = new GenomeComponent();
-        //this will be a seed based random value
-        genomeComponent.genes = "TTAZ";
-        genomeComponent.genomeId = "tester";
-        bush.addOrSaveComponent(genomeComponent);
-    }
-
-    @ReceiveEvent
     public void onProduceCreated(ProduceCreated event, EntityRef creator) {
-        //check if it has genome comp, otherwise give random below
         EntityRef producer = event.getCreator();
         GenomeComponent genomeComponent = new GenomeComponent();
         //might have some issues regarding npe if bush is not sustainable
@@ -82,22 +73,18 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
         if (producer.hasComponent(GenomeComponent.class)) {
             genomeComponent.genomeId = producer.getComponent(GenomeComponent.class).genomeId;
             genomeComponent.genes = producer.getComponent(GenomeComponent.class).genes;
-            LOGGER.info("Has genome component already " + genomeComponent.genes);
         } else {
             FastRandom rand = new FastRandom();
-            LOGGER.info("Dont have a genome component, giving a new one now");
             genomeComponent.genomeId = producer.getParentPrefab().getName();
-            LOGGER.info("Parent prefab is " + producer.getParentPrefab().getName());
             if (genomeRegistry.getGenomeDefinition(genomeComponent.genomeId) == null) {
-                LOGGER.info("Making new genome map for " + genomeComponent.genomeId);
+                LOGGER.info("Defining new genome map for " + genomeComponent.genomeId);
                 addPropertyMap(producer, genomeComponent.genomeId);
             }
             //needs to be random based on vocabulary
             genomeComponent.genes =
                     "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" + "ABCDEFGHIJK".charAt(rand.nextInt(9)) + "" +
                             "ABCDEFGHIJK".charAt(rand.nextInt(9));
-//            producer.addOrSaveComponent(genomeComponent);
-            if (producer!=null) {
+            if (producer != null) {
                 producer.addOrSaveComponent(genomeComponent);
             }
         }
@@ -108,12 +95,20 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
     public void onBeforePlantedEvent(BeforePlanted event, EntityRef plant) {
         EntityRef seed = event.getSeed();
         if (seed.hasComponent(GenomeComponent.class)) {
-            LOGGER.info("Seed had genome comp, giving it to plant" + (seed.getComponent(GenomeComponent.class)).genes);
             plant.addOrSaveComponent(seed.getComponent(GenomeComponent.class));
         }
-        else {
-            LOGGER.info("seed didnt have genome comp");
-        }
+    }
+
+    @ReceiveEvent
+    public void onTransferGenomeEvent(TransferGenomeEvent event, EntityRef bush, BushDefinitionComponent bushComponent, GenomeComponent genomeComponent) {
+        event.getTransferEntity().addOrSaveComponent(genomeComponent);
+    }
+
+    @ReceiveEvent
+    public void addGenomeRetentionEvent(AddGenomeRetention event, EntityRef entity){
+        RetainComponentsComponent retainComponentsComponent = new RetainComponentsComponent();
+        retainComponentsComponent.components.add(GenomeComponent.class);
+        entity.addOrSaveComponent(retainComponentsComponent);
     }
 
     @Command(shortDescription = "Prints genome of held item if possible.")
@@ -122,7 +117,7 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
         if (character.hasComponent(CharacterHeldItemComponent.class)) {
             EntityRef selectedItem = character.getComponent(CharacterHeldItemComponent.class).selectedItem;
             if (selectedItem.hasComponent(GenomeComponent.class)) {
-                return "Has " + selectedItem.getComponent(GenomeComponent.class).genes;
+                return selectedItem.getComponent(GenomeComponent.class).genes;
             } else {
                 return "Held item does not have a Genome Component";
             }
@@ -132,7 +127,6 @@ public class GenomeAuthoritySystem extends BaseComponentSystem {
     }
 
     private void addPropertyMap(EntityRef entity, String genomeId) {
-        LOGGER.info("Registering new map for " + genomeId);
         SeedBasedGenomeMap genomeMap = new SeedBasedGenomeMap(worldProvider.getSeed().hashCode());
         String geneVocabulary = "ABCDEFGHIJK";
         GeneMutator geneMutator = new VocabularyGeneMutator(geneVocabulary);
