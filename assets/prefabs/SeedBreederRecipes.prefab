@@ -1,43 +1,48 @@
 {
   "ListRecipes": {
     "categories": [
-      "InHand",
-      "Seeds",
       "SeedBreeder"
     ],
     "recipes": {
       "EdibleFlora:Blackberry": {
         "inputs": {
-          "EdibleFlora:Orange": 1,
-          "EdibleFlora:Apple": 1
+          "EdibleFlora:Blackberry": 1,
+          "Blackberry": 1
         },
         "outputCount": 1
       },
       "EdibleFlora:Grape": {
         "inputs": {
-          "EdibleFlora:Pear": 1,
-          "EdibleFlora:Carrot": 1
+          "EdibleFlora:Grape": 1,
+          "Grape": 1
         },
         "outputCount": 1
       },
       "EdibleFlora:Cherry": {
         "inputs": {
-          "EdibleFlora:Carrot": 1,
-          "EdibleFlora:Orange": 1
+          "EdibleFlora:Cherry": 1,
+          "Cherry": 1
         },
         "outputCount": 1
       },
       "EdibleFlora:Starfruit": {
         "inputs": {
-          "EdibleFlora:Apple": 1,
-          "EdibleFlora:Pear": 1
+          "EdibleFlora:Starfruit": 1,
+          "Starfruit": 1
         },
         "outputCount": 1
       },
       "EdibleFlora:Banana": {
         "inputs": {
-          "EdibleFlora:Pear": 1,
-          "EdibleFlora:Orange": 1
+          "EdibleFlora:Banana": 1,
+          "Banana": 1
+        },
+        "outputCount": 1
+      },
+      "EdibleFlora:Apple": {
+        "inputs": {
+          "EdibleFlora:Apple": 1,
+          "Apple": 1
         },
         "outputCount": 1
       }
