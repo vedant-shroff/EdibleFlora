@@ -1,7 +1,8 @@
 {
   "ListRecipes": {
     "categories": [
-      "SeedBreeder"
+      "SeedBreeder",
+      "Seeds"
     ],
     "recipes": {
       "EdibleFlora:Blackberry": {
@@ -43,6 +44,27 @@
         "inputs": {
           "EdibleFlora:Apple": 1,
           "Apple": 1
+        },
+        "outputCount": 1
+      },
+      "EdibleFlora:Orange": {
+        "inputs": {
+          "EdibleFlora:Orange": 1,
+          "Orange": 1
+        },
+        "outputCount": 1
+      },
+      "EdibleFlora:Pear": {
+        "inputs": {
+          "EdibleFlora:Pear": 1,
+          "Pear": 1
+        },
+        "outputCount": 1
+      },
+      "EdibleFlora:Carrot": {
+        "inputs": {
+          "EdibleFlora:Carrot": 1,
+          "Carrot": 1
         },
         "outputCount": 1
       }
