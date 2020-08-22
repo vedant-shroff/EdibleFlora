@@ -1,7 +1,8 @@
 {
   "ListRecipes": {
     "categories": [
-      "SeedBreeder"
+      "SeedBreeder",
+      "Seeds"
     ],
     "recipes": {
       "EdibleFlora:Blackberry": {
